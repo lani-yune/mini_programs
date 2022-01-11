@@ -1,0 +1,28 @@
+/*
+Whale Talk
+Take a phrase like ‘Happy new year’ and translate it into its “whale talk” equivalent: ‘AEEEEA’.
+
+Rules for translating text to whale language:
+
+1. There are no consonants. Only vowels excluding “y”.
+2. The u‘s and e‘s are extra long, so we must double them in our program.
+*/
+
+
+const input = 'Happy new year';
+const inputLowerCased = input.toLowerCase();
+const vowels = ['a', 'e', 'o', 'u', 'i'];
+const emptyArray = [];
+
+for(let letterIndex = 0; letterIndex < inputLowerCased.length; letterIndex++) {
+  for(let vowelsIndex = 0; vowelsIndex < vowels.length; vowelsIndex++) {
+    if(inputLowerCased[letterIndex] === vowels[vowelsIndex]) {
+      emptyArray.push(vowels[vowelsIndex]);
+    }
+  }
+  if(inputLowerCased[letterIndex] === 'e' || inputLowerCased[letterIndex] === 'u') {
+    emptyArray.push(inputLowerCased[letterIndex]);
+  }
+}
+
+console.log(emptyArray.join('').toUpperCase());
